@@ -1,4 +1,4 @@
-# jpd
+# Go JP Date
 
 - JIS X 0301 に基づく日本語での日付処理
   - ただしスラッシュ区切りを許容する
@@ -9,7 +9,7 @@
 
 ```go
 date, _ := time.Parse(time.DateOnly, "2025-01-01")
-g, err := GetGengoByTime(date)
+g, err := gjpd.GetGengoByTime(date)
 if err != nil {
     // ...
 }
@@ -22,7 +22,7 @@ fmt.Println(s) // "令和7年1月1日(水曜日)"
 - 日付の指定と対応する元号への自動切り替え
 
 ```go
-g := GetGengoByName("令和")
+g := gjpd.GetGengoByName("令和")
 t, err := g.SetDate("1", "1", "1") // 令和元年1月1日 -> 平成31年1月1日
 if err != nil {
     // ...
@@ -35,7 +35,7 @@ fmt.Println(g.Name) // "平成"
 
 ```go
 date, _ := time.Parse(time.DateOnly, "2025-01-01")
-s := TimeToWeekday(date, "aaa") // 下記参照
+s := gjpd.TimeToWeekday(date, "aaa") // 下記参照
 fmt.Println(s) // "水曜日"
 ```
 
