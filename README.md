@@ -15,7 +15,7 @@ if err != nil {
 }
 fmt.Println(g.Name) // "令和"
 
-s := g.Format("ggge年m月d日(aaa)") // フォーマットレイアウトは後述
+s := g.Format("ggge年m月d日(aaa)") // 下記参照
 fmt.Println(s) // "令和7年1月1日(水曜日)"
 ```
 
@@ -35,7 +35,7 @@ fmt.Println(g.Name) // "平成"
 
 ```go
 date, _ := time.Parse(time.DateOnly, "2025-01-01")
-s := TimeToWeekday(date, "aaa") // フォーマットレイアウトは後述
+s := TimeToWeekday(date, "aaa") // 下記参照
 fmt.Println(s) // "水曜日"
 ```
 
