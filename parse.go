@@ -14,7 +14,7 @@ const (
 )
 
 var (
-	RegexpGengAbbr  = regexp.MustCompile(`^([\S]{1})([0-9]{1,2})\.([0-9]{1,2})\.([0-9]{1,2})`)
+	RegexpGengoAbbr = regexp.MustCompile(`^([\S]{1})([0-9]{1,2})\.([0-9]{1,2})\.([0-9]{1,2})`)
 	RegexpGengoFull = regexp.MustCompile(`^([\S]{2})([0-9]{1,2})年([0-9]{1,2})月([0-9]{1,2})日`)
 )
 
@@ -59,7 +59,7 @@ func Parse(str string) (t time.Time, e error) {
 func ParseAsAbbr(str string) (t time.Time, e error) {
 	str = Trim(str)
 
-	matches := RegexpGengAbbr.FindAllStringSubmatch(str, -1)
+	matches := RegexpGengoAbbr.FindAllStringSubmatch(str, -1)
 	if len(matches) < 1 {
 		e = errors.New(ErrorAbbrMatches)
 		return
